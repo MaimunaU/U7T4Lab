@@ -12,7 +12,16 @@ public class ArrayListAlgorithms {
      * @param stringList original arraylist of Strings
      * @return true if target is found in any of the strings, false otherwise
      */
-    public static boolean containsTarget(ArrayList<String> stringList, String target) { /* implement this method! */ }
+    public static boolean containsTarget(ArrayList<String> stringList, String target) {
+        for (String str : stringList)
+        {
+            if (str.indexOf(target) != -1)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /**
      * Returns number of elements in intList that are less than the
@@ -24,7 +33,9 @@ public class ArrayListAlgorithms {
      * @param intList original arraylist of Integers
      * @return the number of ints in intList that are less than the average
      */
-    public static int belowAverage(ArrayList<Integer> intList) { /* implement this method! */ }
+    public static int belowAverage(ArrayList<Integer> intList) {
+        return 0;
+    }
 
     /**
      * Replaces all words in wordList that end in "s" with the all-uppercase
@@ -37,7 +48,8 @@ public class ArrayListAlgorithms {
      *
      * @param wordList original arraylist of words
      */
-    public static void replaceWithCaps(ArrayList<String> wordList) { /* implement this method! */ }
+    public static void replaceWithCaps(ArrayList<String> wordList) {
+    }
 
     /**
      * Returns the index at which the minimum value of all integers in
@@ -50,7 +62,9 @@ public class ArrayListAlgorithms {
      * @param intList original arraylist of Integers
      * @return the index at which the minimum value occurs
      */
-    public static int indexOfMinimum(ArrayList<Integer> intList) { /* implement this method! */ }
+    public static int indexOfMinimum(ArrayList<Integer> intList) {
+        return 0;
+    }
 
     /**
      * Returns true if two array lists of the same length contain the exact
@@ -64,7 +78,9 @@ public class ArrayListAlgorithms {
      * @param numList2 second arraylist of Integers, has the same size a first
      * @return true if both arraylists are identical, element for element
      */
-    public static boolean areIdentical(ArrayList<Integer> numList1, ArrayList<Integer> numList2) { /* implement this method! */ }
+    public static boolean areIdentical(ArrayList<Integer> numList1, ArrayList<Integer> numList2) {
+        return false;
+    }
 
     /**
      * Removes all elements from numList that are ODD Integers.
@@ -146,7 +162,10 @@ public class ArrayListAlgorithms {
      *                 separated by spaces
      * @return new arraylist of Strings containing the words of sentence reversed
      */
-    public static ArrayList<String> parseWordsAndReverse(String sentence) { /* implement this method! */ }
+    public static ArrayList<String> parseWordsAndReverse(String sentence) {
+        ArrayList<String> strList = new ArrayList<>();
+        return strList;
+    }
 
     /**
      * Removes all words from wordList that begin with "b" and inserts them at the
@@ -187,5 +206,8 @@ public class ArrayListAlgorithms {
      *
      * @param numList numList of ints
      */
-    public static ArrayList<Integer> modes(int[] numList) { /* implement this method! */ }
+    public static ArrayList<Integer> modes(int[] numList) {
+        ArrayList<Integer> intList = new ArrayList<>();
+        return intList;
+    }
 }
