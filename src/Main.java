@@ -53,6 +53,7 @@ public class Main {
         System.out.println(contains);
         contains = ArrayListAlgorithms.containsTarget(stringList, "ia");
         System.out.println(contains);
+
         /*
         //TEST CODE for belowAverage:
         ArrayList<Integer> intList = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5));
