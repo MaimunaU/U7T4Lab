@@ -198,7 +198,19 @@ public class ArrayListAlgorithms {
      *
      * @param intList intList of Integers
      */
-    public static void removeDuplicates(ArrayList<Integer> intList) { /* implement this method! */ }
+    public static void removeDuplicates(ArrayList<Integer> intList) {
+        for (int i = 0; i < intList.size(); i++)
+        {
+            for (int j = i + 1; j < intList.size(); j++)
+            {
+                if (intList.get(i) == intList.get(j))
+                {
+                    intList.remove(j);
+                    j--;
+                }
+            }
+        }
+    }
 
     /**
      * Adds an uppercase version of each string directly AFTER the string
@@ -213,7 +225,13 @@ public class ArrayListAlgorithms {
      *
      * @param wordList arraylist of Strings
      */
-    public static void duplicateUpperAfter(ArrayList<String> wordList) { /* implement this method! */ }
+    public static void duplicateUpperAfter(ArrayList<String> wordList) {
+        for (int i = 0; i < wordList.size(); i++)
+        {
+            wordList.add(i + 1, wordList.get(i).toUpperCase());
+            i++;
+        }
+    }
 
     /**
      * Appends an uppercase version of each string to the END of of wordList;
@@ -229,7 +247,13 @@ public class ArrayListAlgorithms {
      *
      * @param wordList arraylist of Strings
      */
-    public static void duplicateUpperEnd(ArrayList<String> wordList) { /* implement this method! */ }
+    public static void duplicateUpperEnd(ArrayList<String> wordList) {
+        int origSize = wordList.size();
+        for (int i = 0; i < origSize; i++)
+        {
+            wordList.add(wordList.get(i).toUpperCase());
+        }
+    }
 
     /**
      * Returns an arraylist of Strings that represents the input sentence parsed
@@ -245,6 +269,15 @@ public class ArrayListAlgorithms {
      */
     public static ArrayList<String> parseWordsAndReverse(String sentence) {
         ArrayList<String> strList = new ArrayList<>();
+        int idx = 0;
+        while (sentence.indexOf(" ") != -1)
+        {
+            idx = sentence.indexOf(" ");
+            String word = sentence.substring(0, idx);
+            strList.add(0, word);
+            sentence = sentence.substring(idx + 1);
+        }
+        strList.add(0, sentence);
         return strList;
     }
 
@@ -263,7 +296,22 @@ public class ArrayListAlgorithms {
      *
      * @param wordList arraylist of words
      */
-    public static void moveBWords(ArrayList<String> wordList) { /* implement this method! */ }
+    public static void moveBWords(ArrayList<String> wordList) {
+        ArrayList<String> bWords = new ArrayList<>();
+        for (int i = 0; i < wordList.size(); i++)
+        {
+            if (wordList.get(i).indexOf("b") == 0)
+            {
+                bWords.add(wordList.get(i));
+                wordList.remove(i);
+                i--;
+            }
+        }
+        for (int i = bWords.size() - 1; i >= 0; i--)
+        {
+            wordList.add(0, bWords.get(i));
+        }
+    }
 
     /**
      * Returns arraylist of Integers that contain all mode(s) of the int array numList.
@@ -288,7 +336,29 @@ public class ArrayListAlgorithms {
      * @param numList numList of ints
      */
     public static ArrayList<Integer> modes(int[] numList) {
-        ArrayList<Integer> intList = new ArrayList<>();
-        return intList;
+        ArrayList<Integer> modes = new ArrayList<>();
+        int maxCount = 1;
+        for (int i = 0; i < numList.length; i++)
+        {
+            int count = 1;
+            for (int j = i + 1; j < numList.length; j++)
+            {
+                if (numList[i] == numList[j])
+                {
+                    count++;
+                }
+            }
+            if (count > maxCount)
+            {
+                maxCount = count;
+                modes.clear();
+                modes.add(numList[i]);
+            }
+            else if (count == maxCount && count != 1)
+            {
+                modes.add(numList[i]);
+            }
+        }
+        return modes;
     }
 }
