@@ -54,7 +54,6 @@ public class Main {
         contains = ArrayListAlgorithms.containsTarget(stringList, "ia");
         System.out.println(contains);
 
-        /*
         //TEST CODE for belowAverage:
         ArrayList<Integer> intList = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5));
         int count = ArrayListAlgorithms.belowAverage(intList);
@@ -121,7 +120,7 @@ public class Main {
         ArrayList<String> stringList5 = new ArrayList<String>(Arrays.asList("these", "words", "pork", "contains"));
         ArrayListAlgorithms.wackyVowels(stringList5);
         System.out.println(stringList5);
-
+        /*
         //TEST CODE for removeDuplicates:
         ArrayList<Integer> intList14 = new ArrayList<Integer>(Arrays.asList(1, 1, 2, 4, 5, 2, 2, 1, 6, 4, 4, 7, 1, 8, 4, 2));
         ArrayListAlgorithms.removeDuplicates(intList14);

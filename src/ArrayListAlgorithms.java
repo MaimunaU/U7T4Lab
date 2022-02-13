@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ArrayListAlgorithms {
     /**
@@ -34,7 +35,21 @@ public class ArrayListAlgorithms {
      * @return the number of ints in intList that are less than the average
      */
     public static int belowAverage(ArrayList<Integer> intList) {
-        return 0;
+        int sum = 0;
+        for (int num : intList)
+        {
+            sum += num;
+        }
+        double avg = sum / (double) intList.size();
+        int count = 0;
+        for (int num : intList)
+        {
+            if (num < avg)
+            {
+                count++;
+            }
+        }
+        return count;
     }
 
     /**
@@ -49,6 +64,14 @@ public class ArrayListAlgorithms {
      * @param wordList original arraylist of words
      */
     public static void replaceWithCaps(ArrayList<String> wordList) {
+        for (int i = 0; i < wordList.size(); i++)
+        {
+            String str = wordList.get(i);
+            if (str.substring(str.length() - 1).equals("s"))
+            {
+                wordList.set(i, wordList.get(i).toUpperCase());
+            }
+        }
     }
 
     /**
@@ -63,7 +86,20 @@ public class ArrayListAlgorithms {
      * @return the index at which the minimum value occurs
      */
     public static int indexOfMinimum(ArrayList<Integer> intList) {
-        return 0;
+        int min = intList.get(0);
+        for (int num : intList)
+        {
+            if (num < min)
+            {
+                min = num;
+            }
+        }
+        int i = 0;
+        while (intList.get(i) != min)
+        {
+            i++;
+        }
+        return i++;
     }
 
     /**
@@ -79,7 +115,14 @@ public class ArrayListAlgorithms {
      * @return true if both arraylists are identical, element for element
      */
     public static boolean areIdentical(ArrayList<Integer> numList1, ArrayList<Integer> numList2) {
-        return false;
+        for (int i = 0; i < numList1.size(); i++)
+        {
+            if (numList1.get(i) != numList2.get(i))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -88,9 +131,18 @@ public class ArrayListAlgorithms {
      * DOES mutate (modify) elements in numList
      * PRECONDITION: numList1.size() > 0
      *
-     * @param numList1 arraylist of Integers
+     * @param numList arraylist of Integers
      */
-    public static void removeOdds(ArrayList<Integer> numList) { /* implement this method! */ }
+    public static void removeOdds(ArrayList<Integer> numList) {
+        for (int i = 0; i < numList.size(); i++)
+        {
+            if (numList.get(i) % 2 == 1)
+            {
+                numList.remove(i);
+                i--;
+            }
+        }
+    }
 
     /**
      * Removes all elements from wordList that contain an a, e, i , and/or o.
@@ -105,7 +157,36 @@ public class ArrayListAlgorithms {
      *
      * @param wordList arraylist of Strings
      */
-    public static void wackyVowels(ArrayList<String> wordList) { /* implement this method! */ }
+    public static void wackyVowels(ArrayList<String> wordList) {
+        for (int i = 0; i < wordList.size(); i++)
+        {
+            if (wordList.get(i).indexOf("a") != -1)
+            {
+                wordList.remove(i);
+                i--;
+            }
+            else if (wordList.get(i).indexOf("e") != -1)
+            {
+                wordList.remove(i);
+                i--;
+            }
+            else if (wordList.get(i).indexOf("i") != -1)
+            {
+                wordList.remove(i);
+                i--;
+            }
+            else if (wordList.get(i).indexOf("o") != -1)
+            {
+                wordList.remove(i);
+                i--;
+            }
+            else
+            {
+                wordList.add(i + 1, wordList.get(i));
+                i++;
+            }
+        }
+    }
 
     /**
      * Removes all duplicate values from an intList, leaving only the first
